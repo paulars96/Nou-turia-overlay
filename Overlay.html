@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Marcador Nou Túria</title>
+  <style>
+    body { margin: 0; background: #1e1e1e; color: white; font-family: sans-serif; }
+    #marcador { display: flex; justify-content: center; align-items: center; font-size: 2em; padding: 10px; }
+    .equipo { margin: 0 20px; text-align: center; }
+    .goles { font-weight: bold; font-size: 2.5em; }
+  </style>
+</head>
+<body>
+  <div id="marcador">
+    <div class="equipo">
+      <div id="localNombre">Nou Túria</div>
+      <div class="goles" id="localGoles">0</div>
+    </div>
+    <div>-</div>
+    <div class="equipo">
+      <div id="visitanteNombre">Rival FC</div>
+      <div class="goles" id="visitanteGoles">0</div>
+    </div>
+  </div>
+  <div style="text-align:center; font-size:1.2em;" id="tiempo">00:00</div>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    document.getElementById("localNombre").textContent = urlParams.get("local") || "Nou Túria";
+    document.getElementById("visitanteNombre").textContent = urlParams.get("visitante") || "Rival FC";
+    document.getElementById("localGoles").textContent = urlParams.get("golesLocal") || "0";
+    document.getElementById("visitanteGoles").textContent = urlParams.get("golesVisitante") || "0";
+    document.getElementById("tiempo").textContent = urlParams.get("tiempo") || "00:00";
+  </script>
+</body>
+</html>
